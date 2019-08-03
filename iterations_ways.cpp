@@ -6,8 +6,8 @@ int32_t main()
 {
 	
 	vector<int> v;
-	v.pb(3);
-	v.pb(2);
+	v.push_back(3);
+	v.push_back(2);
 	for(int i=0;i<v.size();i++){
 		cout<<v[i]<<'\n';
 	}
