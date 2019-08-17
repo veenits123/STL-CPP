@@ -7,36 +7,54 @@ using namespace std;
 #define S second
 #define P pair<int,int>
 #define pb push_back
-#define PI 3.1415926535897932384626
-#define IOS
-const int mod = 1000000007;
-const int N=100005;
 
-void the_fcuker(){
-    ios_base:: sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("debug.txt", "w", stderr);
-    #endif
+void print(list <int> l){
+    //list <int> :: iterator i;
+    auto i=l.begin();
+    for ( i=l.begin();i!=l.end();i++){
+        cout<<*i<<" ";
+    }
+    cout<<endl;
 }
 
 int32_t main(){
     
-    the_fcuker();
-    
-    int t;cin>>t;while(t--){
-        int i,j,k,n,m,cnt=0,sum=0;
-        cin>>n;
-        ld ans =0.000000;
-        if(n>=5){
-            cout<<"1.000000"<<endl;
-        }
-        else {
-            ans = (n+2.000000)/7.000000;
-            cout<<ans<<endl;
-        }
+    ios_base:: sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    //  code starts
+    list <int> l,l2;
+
+    for (int i=0;i<5;i++){
+        l.push_back(i*3);
+        l.push_front(i*5);
+        l2.push_front(i*5);
     }
+    //l.clear();
+    cout<<"size of list = "<<l.size()<<endl;
+    cout<<"front element = "<<l.front()<<endl;
+    cout<<"back element = "<<l.back()<<endl;
+    l.unique();//remove duplicates 
+    print(l);
+
+    l2.remove(15);//remove element with specific value
+    print(l2);
+
+
+    //l.sort();//sorting list
+    //l.reverse();//reversing list
+
+    l.pop_front();
+    cout<<"after deletion from front : ";
+    print(l);
+
+    l.pop_back();
+    cout<<"after deletion from back : ";
+    print(l);
+    
     return 0;
 }
