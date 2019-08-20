@@ -19,7 +19,7 @@ int32_t main(){
 	#endif
 	//  code starts
 	int n;cin>>n;
-	vector <int> v(n,0);
+	vector <int> v(n+5,0);
 	int sum=0;
 
 	for (int i=0;i<n;i++){
@@ -28,7 +28,7 @@ int32_t main(){
 	}
 
 	if (sum & 1){
-		coout<<"NO";
+		cout<<"NO";
 		return 0;
 	}
 
@@ -39,20 +39,33 @@ int32_t main(){
 		a2[v[i]]++;
 	}
 	int sdash=0;
-	for (int i=0;i<n-1;i++){
+	for (int i=0;i<n;i++){
 		sdash+=v[i];
 		if (sdash==sum/2){
 			cout<<"YES";
 			return 0;
 		}
-		if (sdash<sum){
-			int x=sum/2-sdash;
-			
-			
+
+		if (sdash<sum/2){
+			int x=sum/2-sdash;//search it in second part
+			if (a2[x]>0){
+				cout<<"YES";
+				return 0;
+			}
 		}
 
-
+		if (sdash>sum/2){
+			int y=sdash-sum/2;//search it in first part
+			if (a1[y]>0){
+				cout<<"YES";
+				return 0;
+			}
+		}
+		a1[v[i+1]]++;
+		a2[v[i+1]]--;//remove from second part
 	}
+
+	cout<<"NO";
 	
 	return 0;
 }
