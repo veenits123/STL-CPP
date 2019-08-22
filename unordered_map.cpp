@@ -18,20 +18,14 @@ int32_t main(){
 	freopen("output.txt", "w", stdout);
 	#endif
 	//  code starts
-	map <char,int> m;
-	unordered_map <char,int> u;
-
-
-	string s="hellohell";
-
-	for (auto x:s){
-		m[x]++;
-		u[x]++;
-	}
-	for (auto y:m){
-		cout<<y.F;
-	}
-
+  int n;cin>>n;
+  string s;cin>>s;
+  if (n<3200){
+    cout<<"red";
+    return 0;
+  }
+  
+    cout<<s;
 	
 	return 0;
 }
